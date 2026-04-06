@@ -1,28 +1,20 @@
 package com.finaljavaproject.www.util;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import java.io.File;
+import java.io.IOException;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
-
 public class JsonWriter {
-    public ObjectMapper mapper;
-    public void write(String url, List<Object> objects) throws JsonProcessingException {
-        mapper = new ObjectMapper();
-        String objectToJson = mapper.writeValueAsString(objects);
-        String sPath = "./json" + url;
-        Path path = Paths.get(sPath);
-        try(FileWriter writer = new FileWriter(String.valueOf(path))) {
-            writer.write(objectToJson);
-            System.out.println("파일이 작성되었습니다.");
-        } catch (IOException e) {
-            System.out.println("오류가 발생했습니다." + e.getMessage() );
-            e.printStackTrace();
-        }
+    private final  ObjectMapper mapper = new ObjectMapper();
+    public void write(String fileName, Object data) {
+	    String filePath = "./json/" + fileName;
+	    try {
+		mapper.writerWithDefaultPrettyPrinter().writeValue(new File(filePath), data);
+		System.out.println("파일 저장 완료" + fileName);
+	} catch (IOException e) {
+		System.err.println("저장 오류 : " + e. getMessage());
+	}
 
     }
 }
