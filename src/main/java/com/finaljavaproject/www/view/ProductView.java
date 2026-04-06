@@ -1,0 +1,55 @@
+package com.finaljavaproject.www.view;
+
+import java.util.List;
+import java.util.Scanner;
+
+import com.finaljavaproject.www.domain.Product;
+import com.finaljavaproject.www.domain.constant.ProductStatus;
+
+public class ProductView extends AbstractView<Product, String> {
+
+	private Scanner scanner = new Scanner(System.in);
+	@Override
+	public void showMenu() {
+		super.printHeader("상품 관리");
+		super.renderMessage("1. 싱품 등록\t  2. 상품 수정 \t 3. 상품 삭제");
+	}
+
+	@Override
+	public Product inputData() {
+		Product newProduct = null;
+		System.out.print("상품 ID:");
+		String id = scanner.next();
+		System.out.print("상품 명: ");
+		String name = scanner.next();
+		System.out.print("상세 설명: ");
+		String description = scanner.next();
+		System.out.println("가격:");
+		int price = scanner.nextInt();
+		System.out.print("재고 수량: ");
+		int stock = scanner.nextInt();
+		newProduct = new Product(id, name, description, price, stock, ProductStatus.NORMAL);
+		return newProduct;
+	}
+
+	@Override
+	public void renderDetail(Product item) {
+		super.renderMessage("상품  아이디 : " + item.getProductId());
+		super.renderMessage("상품 명 : " + item.getName());
+		super.renderMessage("상품 가격 : " + item.getPrice());
+		super.renderMessage("상품 재고수 " + item.getStock());
+		super.renderMessage("상품 판매가능 여부" + item.getProductStatus());
+	}
+
+	@Override
+	public void renderList(List<Product> items) {
+		items.stream().forEach(product -> renderDetail(product));
+	}
+
+	@Override
+	public String inputSelection() {
+		String choice = scanner.next();
+		return choice;
+	}
+
+}

@@ -10,6 +10,11 @@ public class MemberController extends AbstractController<Member, String>{
 	public MemberController(MemberService service, MemberView view) {
 		        super(service, view);
 	}
+	
+	public Member getSessionUser() {
+		Member currentUser = service.getOne(sessionUserId);
+		return currentUser;
+	}
 
 	@Override
 	public void processRead() {

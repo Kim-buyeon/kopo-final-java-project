@@ -12,7 +12,7 @@ public class MemberView extends AbstractView<Member, String> {
 	@Override
 	public void showMenu() {
 		super.printHeader("회원관리");
-		System.out.println("1. 회원가입 \t  2. 로그인\t  3. 회원정보 관리 ");
+		super.renderMessage("1. 회원가입 \t  2. 로그인\t  3. 회원정보 관리 ");
 	}
 
 	@Override
