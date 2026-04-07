@@ -10,7 +10,8 @@ public class MemberService extends AbstractService<Member, String>{
 	public MemberService(Repository<Member, String> repository) {
 		super(repository);
 	}
-	
+
+	//로그인 하는 함수
 	public void login(String id, String password) {
 		List<Member> members = repository.findAll();
 		 Optional<Member> member = members.stream().
@@ -22,7 +23,8 @@ public class MemberService extends AbstractService<Member, String>{
 			 System.out.println("로그인에 실패했습니다.");
 		 }
 	}
-	
+
+	//로그아웃 하는 함수
 	public void logout(String id) {
 		List<Member> members = repository.findAll();
 		Optional<Member> member = members.stream().

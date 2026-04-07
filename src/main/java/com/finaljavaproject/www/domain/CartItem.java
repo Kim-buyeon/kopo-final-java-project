@@ -18,6 +18,13 @@ public class CartItem {
 		this.productId = productId;
 		this.quantity = quantity;
 	}
+
+	public CartItem(String id, String productId, int quantity) {
+		this.id = id;
+		this.productId = productId;
+		this.quantity = quantity;
+	}
+
 	public String getMemberId() {
 		return memberId;
 	}

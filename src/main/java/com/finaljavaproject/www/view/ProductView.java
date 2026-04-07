@@ -12,7 +12,7 @@ public class ProductView extends AbstractView<Product, String> {
 	@Override
 	public void showMenu() {
 		super.printHeader("상품 관리");
-		super.renderMessage("1. 싱품 등록\t  2. 상품 수정 \t 3. 상품 삭제");
+		super.renderMessage("1. 싱품 등록\t  2. 상품 수정 \t 3. 상품 삭제 \t 4. 상품 출력");
 	}
 
 	@Override
@@ -50,6 +50,19 @@ public class ProductView extends AbstractView<Product, String> {
 	public String inputSelection() {
 		String choice = scanner.next();
 		return choice;
+	}
+
+	public int inputStock(){
+		super.printHeader("재고 수량 변경");
+		super.renderMessage("원하는 재고 변화량을 (+)/(-) 포함해서 입력헤주세요");
+		int stock = scanner.nextInt();
+		return stock;
+	}
+	//정렬 기준을 뭐로 할지 입력하고 이를 리턴해주는 메서드
+	public String inputSortStandard(){
+		System.out.println("상품 정렬 기준 입력해주세요");
+		String standard = scanner.next();
+		return standard;
 	}
 
 }

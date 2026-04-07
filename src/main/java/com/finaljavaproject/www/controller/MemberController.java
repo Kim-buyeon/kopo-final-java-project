@@ -5,15 +5,15 @@ import com.finaljavaproject.www.service.MemberService;
 import com.finaljavaproject.www.view.MemberView;
 
 public class MemberController extends AbstractController<Member, String>{
-	
+
+	//이거 로그인아이디 저장하는 거 main class 역할을 하는 Ecommerce class에서 다시 작성할 예정
 	private static String sessionUserId = null;
 	public MemberController(MemberService service, MemberView view) {
 		        super(service, view);
 	}
 	
-	public Member getSessionUser() {
-		Member currentUser = service.getOne(sessionUserId);
-		return currentUser;
+	public static String getSessionUserId() {
+		return  sessionUserId;
 	}
 
 	@Override

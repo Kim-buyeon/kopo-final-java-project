@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.finaljavaproject.www.repository.Repository;
 
+//CommonService interface를 상속받은 추상클래스이다. 모든 서비스에 적용되는 메서드는 구현
 public abstract class AbstractService<T,  ID> implements CommonService<T, ID> {
     protected Repository<T, ID> repository;
     

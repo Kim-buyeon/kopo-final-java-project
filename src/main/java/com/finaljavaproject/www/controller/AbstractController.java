@@ -3,6 +3,7 @@ package com.finaljavaproject.www.controller;
 import com.finaljavaproject.www.service.AbstractService;
 import com.finaljavaproject.www.view.AbstractView;
 
+//Controller 인터페이스에서 상속받은 추상 클래스로써 모든 컨트롤러 클래스에 공통으로 적용되는 메서드만 구현하고 타입에 따라 달라지는 메서드는 미 구현
 public abstract class AbstractController<T, ID> implements Controller<T> {
 	protected final AbstractService<T, ID> service;
 	protected final AbstractView<T, ID> view;

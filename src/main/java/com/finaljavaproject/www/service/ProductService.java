@@ -23,7 +23,8 @@ public class ProductService extends AbstractService<Product, String>{
 	public void remove(String id) {
 		repository.deleteById(id);
 	}
-	
+
+	//물품의 재고수를 관리해주는 메서드 추가하냐 삭제하냐에 따라 다르게 동작한다.
 	public void manageStock(String id, int stock, boolean isAdding) {
 		Product product = repository.findById(id);
 		if(product == null)return;
@@ -33,7 +34,9 @@ public class ProductService extends AbstractService<Product, String>{
 			product.removeStock(stock);
 		}
 		update(product);
-		
 	}
+
+
+
 
 }
