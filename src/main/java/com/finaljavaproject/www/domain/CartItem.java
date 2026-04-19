@@ -24,6 +24,10 @@ public class CartItem {
 		this.productId = productId;
 		this.quantity = quantity;
 	}
+	
+	public  CartItem() {
+		
+	}
 
 	public String getMemberId() {
 		return memberId;

@@ -1,6 +1,7 @@
 package com.finaljavaproject.www.service;
 
 import com.finaljavaproject.www.domain.Product;
+import com.finaljavaproject.www.domain.constant.ProductStatus;
 import com.finaljavaproject.www.repository.Repository;
 
 public class ProductService extends AbstractService<Product, String>{
@@ -34,6 +35,11 @@ public class ProductService extends AbstractService<Product, String>{
 			product.removeStock(stock);
 		}
 		update(product);
+		if (product.getProductStatus() == ProductStatus.SUSPENSION) {
+			      System.out.println("알림: [" + product.getName() + "] 상품의 재고가 부족하여 판매 중지 상태로 변경되었습니다.");
+		} else {
+			      System.out.println("정상 처리되었습니다. 현재 재고: " + product.getStock());
+		}
 	}
 
 

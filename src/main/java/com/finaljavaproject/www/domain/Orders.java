@@ -2,13 +2,13 @@ package com.finaljavaproject.www.domain;
 
 import java.util.UUID;
 
-public class Order {
+public class Orders {
     private String id;
     private String memberId;
     private String productId;
     private int quantity;
 
-    public Order(String memberId, String productId, int quantity) {
+    public Orders(String memberId, String productId, int quantity) {
         this.id = UUID.randomUUID().toString();
         this.memberId = memberId;
         this.productId = productId;

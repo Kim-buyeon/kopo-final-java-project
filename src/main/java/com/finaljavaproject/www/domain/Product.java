@@ -49,14 +49,21 @@ public class Product {
 	
 	public void addStock(int quantity) {
 		this.stock += quantity;
-	}
-	public void removeStock(int quantity) {
-		int restStock = this.stock - quantity;
-		if(restStock < 0) {
-			setProductStatus(ProductStatus.SUSPENSION);
-		}else {
-			this.stock = restStock;
+		if(this.stock > 0 && this.productStatus == ProductStatus.SUSPENSION) {
+			setProductStatus(ProductStatus.NORMAL);
 		}
+	}
+	
+	public void removeStock(int quantity) {
+		if (this.stock < quantity) {
+		        this.stock = 0; 
+		        setProductStatus(ProductStatus.SUSPENSION);
+		    } else {
+		        this.stock -= quantity;
+		        if (this.stock == 0) {
+		            setProductStatus(ProductStatus.SUSPENSION);
+		        }
+		    }
 	}
 	
 	

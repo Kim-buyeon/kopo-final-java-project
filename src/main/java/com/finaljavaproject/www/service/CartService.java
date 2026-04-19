@@ -1,7 +1,7 @@
 package com.finaljavaproject.www.service;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.stream.Collectors;
 
 import com.finaljavaproject.www.domain.CartItem;
 import com.finaljavaproject.www.repository.Repository;
@@ -16,8 +16,9 @@ public class CartService extends AbstractService<CartItem, String> {
 	    public List<CartItem> getMemberCart(String memberId) {
 	        return repository.findAll().stream()
 	                .filter(item -> item.getMemberId().equals(memberId))
-	                .toList();
+	                .collect(Collectors.toList());
 	    }
+	    
 
 		//장바구니 물건 추가하는 메서드 이미 있으면 수량만 늘리고 그게 아니라면 객체를 생성
 	    public void addToCart(CartItem cartItem, String memberId) {
@@ -46,14 +47,16 @@ public class CartService extends AbstractService<CartItem, String> {
 				existing.setQuantity(existing.getQuantity() - count);
 				if(existing.getQuantity() <= 0){
 					remove(productId);
+				}else {
+					update(cartItem);
 				}
 			}
 
 		}
 
-		public void clear(){
-			List<CartItem> carts = repository.findAll();
-			carts.clear();
+		public void clear(String memberId){
+			List<CartItem> carts = getMemberCart(memberId);
+			carts.stream().forEach(c -> remove(c.getId()));
 		}
 
 

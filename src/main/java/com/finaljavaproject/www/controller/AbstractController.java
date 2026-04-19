@@ -18,7 +18,9 @@ public abstract class AbstractController<T, ID> implements Controller<T> {
 	public void processCreate() {
 		T data = view.inputData();
 		try {
+			System.out.println("DEBUG: 컨트롤러 - 서비스 호출 직전");
 			service.create(data);
+			System.out.println("DEBUG: 컨트롤러 - 서비스 호출 완료");
 			view.renderMessage((ID) "성공적으로 등록되었습니다.");
 		} catch (Exception e) {
 			view.renderMessage((ID)"등록 실패");

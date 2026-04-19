@@ -4,16 +4,16 @@ import com.finaljavaproject.www.domain.constant.MemberClassfication;
 
 public class Member {
     private String id;
-    private String passwrod;
+    private String password;
     private String name;
     private String telNo;
     private String email;
     private String status;
     private MemberClassfication memberClassfication;
 
-    public Member(String id, String passwrod, String name, String telNo, String email, MemberClassfication memberClassfication) {
+    public Member(String id, String password, String name, String telNo, String email, MemberClassfication memberClassfication) {
         this.id = id;
-        this.passwrod = passwrod;
+        this.password = password;
         this.name = name;
         this.telNo = telNo;
         this.email = email;
@@ -29,12 +29,12 @@ public class Member {
         this.id = id;
     }
 
-    public String getPasswrod() {
-        return passwrod;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswrod(String passwrod) {
-        this.passwrod = passwrod;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {

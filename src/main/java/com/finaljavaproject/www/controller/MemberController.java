@@ -6,10 +6,13 @@ import com.finaljavaproject.www.view.MemberView;
 
 public class MemberController extends AbstractController<Member, String>{
 
-	//이거 로그인아이디 저장하는 거 main class 역할을 하는 Ecommerce class에서 다시 작성할 예정
 	private static String sessionUserId = null;
+	private final MemberService memberService;
+	private final MemberView memberView;
 	public MemberController(MemberService service, MemberView view) {
 		        super(service, view);
+		        this.memberService = service;
+		        this.memberView = view;
 	}
 	
 	public static String getSessionUserId() {
@@ -18,7 +21,7 @@ public class MemberController extends AbstractController<Member, String>{
 
 	@Override
 	public void processRead() {
-		view.renderList(service.getAll());
+		memberView.renderList(memberService.getAll());
 	}
 
 	@Override
@@ -54,20 +57,19 @@ public class MemberController extends AbstractController<Member, String>{
 	}
 
 	public void processLogin() {
-		view.printHeader("로그인");
-		System.out.print("아이디 : ");
-		String id = view.inputId();
-		System.out.print("비밀번호 : ");
-		String password=  view.inputSelection();
-		((MemberService)service).login(id, password);
-		sessionUserId = id;
+		String[] loginData = memberView.inputLoginData();
+		String id = loginData[0];
+		String pw = loginData[1];
+		boolean success = memberService.login(id, pw);
+		if(success) {
+			sessionUserId = id;
+		}
 	}
 	
 	public  void processLogout() {
 		if(sessionUserId != null) {
-			((MemberService)service).logout(sessionUserId);
+			memberService.logout(sessionUserId);
 			sessionUserId = null;
-			view.renderMessage("로그아웃 되었습니다.");
 		}
 	}
 

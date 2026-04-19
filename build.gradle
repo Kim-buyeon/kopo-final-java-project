@@ -10,8 +10,10 @@ repositories {
 }
 
 dependencies {
-    implementation platform('com.fasterxml.jackson:jackson-bom:2.17.0')
-    implementation 'com.fasterxml.jackson.core:jackson-databind'
+	implementation 'com.oracle.database.security:oraclepki:21.13.0.0'
+    implementation 'com.oracle.database.security:osdt_cert:21.13.0.0'
+    implementation 'com.oracle.database.security:osdt_core:21.13.0.0'
+	implementation 'com.oracle.database.jdbc:ojdbc11:23.3.0.23.09''
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
