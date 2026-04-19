@@ -65,4 +65,5 @@ public class EcommerceManager {
 5. debugging 하는 속도를 높이기 위해 gemini한테 질문을 하고 이를 바탕으로 오류를 해결해나갔습니다.
 6. 일부 코드는 코드를 깔끔하게 작성할 수 있는 방법이 떠오르지 않아 gemini한테 질문함으로써 얻은 정보로 리펙토링 진행하였습니다.
 7. 전자지갑으로 구축된 클라우드 서버와의 연계 방식을 gemini한테 질문했습니다. ex) oraclepki.jar, osdt_cer.jar, osdt_core.jar 파일 필요
+8. 초반 schema.sql 실행 시 발생한 버그를 해결하기 위해 gemini 한테 질문하고 이 정보들을 기반으로 문제 해결
 * */

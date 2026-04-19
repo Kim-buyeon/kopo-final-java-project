@@ -52,8 +52,6 @@ public class CategoryView extends AbstractView<Category,String> {
             
             System.out.print("상위 대분류 번호 선택: ");
             int choice = scanner.nextInt();
-            System.out.println("[debug]부모카테고리 명 :  " +  mainCategories.get(choice-1).getName());
-            System.out.println("[debug]부모카테고리 아이디 :  " +  mainCategories.get(choice-1).getCategoryId());
             newCategory.setParentId(mainCategories.get(choice-1).getCategoryId());
         }	
         return newCategory;

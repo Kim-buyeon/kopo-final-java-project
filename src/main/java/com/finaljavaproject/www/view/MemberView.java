@@ -19,26 +19,18 @@ public class MemberView extends AbstractView<Member, String> {
 	public Member inputData() {
 		Member newMember = null;
 		super.printHeader("회원가입");
-		//if (scanner.hasNextLine()) scanner.nextLine();
-		System.out.println("DEBUG: 입력을 시작합니다...");
 		System.out.print("아이디 (영문/숫지 5~15자):  ");
 		String id = scanner.nextLine().trim();
-		System.out.println("DEBUG: 입력된 ID = [" + id + "]");
 		System.out.print("비밀번호  :");
 		String password = scanner.nextLine().trim();
-		System.out.println("DEBUG: 입력된 ID = [" + password  + "]");
 		System.out.print("이름 : ");
 		String name = scanner.nextLine().trim();
-		System.out.println("DEBUG: 입력된 ID = [" + name  + "]");
 		System.out.print("전화번호 : ");
 		String telNo = scanner.nextLine().trim();
-		System.out.println("DEBUG: 입력된 ID = [" + telNo  + "]");
 		System.out.print("이메일 : ");
 		String email = scanner.nextLine().trim();
-		System.out.println("DEBUG: 입력된 ID = [" + email  + "]");
 		System.out.print("회원 구분(일반회원 or 관리자로 입력): ");
 		String classfication = scanner.nextLine().trim();
-		System.out.println("DEBUG: 입력된 ID = [" + classfication  + "]");
 		String idRegex = "^[a-zA-Z0-9]{5,15}$";
 		String passwordRegex  = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{5,15}$";
 		

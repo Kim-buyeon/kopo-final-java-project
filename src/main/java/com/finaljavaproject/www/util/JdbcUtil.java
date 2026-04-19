@@ -58,11 +58,8 @@ public class JdbcUtil {
 		                    try {
 		                        stmt.execute(trimmedQuery);
 		                    } catch (SQLException e) {
-		                        if (e.getErrorCode() == 942 || e.getErrorCode() == 955) {
-		                            System.out.println(">>> [알림] 삭제할 테이블이 없어 건너뜁니다.");
-		                        } else {
-		                            throw e; 
-		                        }
+		                  	  System.err.println("에러 발생" + e.getMessage());
+		                  	  e.printStackTrace();
 		                    }
 		                }
 		            }
